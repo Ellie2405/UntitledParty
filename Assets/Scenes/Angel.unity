@@ -334,6 +334,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 233641216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &529166195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 529166196}
+  - component: {fileID: 529166197}
+  m_Layer: 0
+  m_Name: 'ThreatMeter '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &529166196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529166195}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06759721, y: 0.052737754, z: -0.0026176616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529166197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529166195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866a42811788d0c44861bfea2612faad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseRate: 1
+  decreaseRate: 0.5
 --- !u!1 &1011386713
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +395,7 @@ GameObject:
   - component: {fileID: 1011386719}
   - component: {fileID: 1011386718}
   m_Layer: 0
-  m_Name: bodyguard
+  m_Name: Bodyguard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,3 +754,4 @@ SceneRoots:
   - {fileID: 1529732342}
   - {fileID: 1580549306}
   - {fileID: 1011386714}
+  - {fileID: 529166196}
