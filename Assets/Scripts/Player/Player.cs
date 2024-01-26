@@ -74,11 +74,13 @@ public class Player : MonoBehaviour
             }
 
         }
-
+        gm.NowNPC = NearNPC;
 
         NearNPC.GetComponent<Pathfinder>().CanMove = false ;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
-        gm.MiniGameManager.StartMiniGame();
+        gm.StartConv();
+
+
     }
 
     void FlipChecker()

@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class MiniGame : MonoBehaviour
 {
-    [SerializeField] Canvas MainCanvas;
+    [SerializeField] Transform Parent;
     [SerializeField] GameObject MiniGameObj;
     [SerializeField] GameObject Rope;
     [SerializeField] GameObject NowRope;
     [SerializeField] Transform StartPointForRope;
     [SerializeField] int NumbOfLines;
     [SerializeField] List<GameObject> AllRope;
+
+    [SerializeField] GM gm;
 
     int LastSideTaped = 0;
     int NumDone;
@@ -31,12 +33,12 @@ public class MiniGame : MonoBehaviour
     public void StartMiniGame()
     {
         MiniGameObj.SetActive(true);
-        GameObject NewRope = (GameObject)Instantiate(Rope, MainCanvas.gameObject.transform.position, Quaternion.identity);
+        GameObject NewRope = (GameObject)Instantiate(Rope, Parent.position, Quaternion.identity);
         AllRope.Add(NewRope);
         NowRope = NewRope;
-        NowRope.transform.SetParent(MainCanvas.gameObject.transform);
+        NowRope.transform.SetParent(Parent);
         NowRope.transform.position = StartPointForRope.position;
-
+        Debug.Log("StartGame");
     }
 
     public void ClickedPoint (GameObject Point, int LastSide)
@@ -48,10 +50,10 @@ public class MiniGame : MonoBehaviour
             {
                 LastSideTaped = LastSide;
                 NowRope.GetComponent<Rope>().enabled = false;
-                GameObject NewRope = (GameObject)Instantiate(Rope, MainCanvas.gameObject.transform.position, Quaternion.identity);
+                GameObject NewRope = (GameObject)Instantiate(Rope, Parent.position, Quaternion.identity);
                 AllRope.Add(NewRope);
                 NowRope = NewRope;
-                NowRope.transform.SetParent(MainCanvas.gameObject.transform);
+                NowRope.transform.SetParent(Parent);
                 NowRope.transform.position = Point.transform.position;
             }
             else
@@ -63,10 +65,10 @@ public class MiniGame : MonoBehaviour
                     LastSideTaped = LastSide;
 
                     NowRope.GetComponent<Rope>().enabled = false;
-                    GameObject NewRope = (GameObject)Instantiate(Rope, MainCanvas.gameObject.transform.position, Quaternion.identity);
+                    GameObject NewRope = (GameObject)Instantiate(Rope, Parent.position, Quaternion.identity);
                     AllRope.Add(NewRope);
                     NowRope = NewRope;
-                    NowRope.transform.SetParent(MainCanvas.gameObject.transform);
+                    NowRope.transform.SetParent(Parent);
                     NowRope.transform.position = StartPointForRope.position;
                 }
                 else
@@ -88,6 +90,7 @@ public class MiniGame : MonoBehaviour
         AllRope.Clear();
         MiniGameObj.SetActive(false);
 
+        gm.LeaveConvWithNPC();
     }
 
  
