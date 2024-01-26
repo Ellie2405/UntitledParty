@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour
     [SerializeField] string Response;
     [SerializeField] Pathfinder Path;
     [SerializeField] GM gm;
+    [SerializeField] public GameObject Mask;
     // Start is called before the first frame update
     void Start()
     {

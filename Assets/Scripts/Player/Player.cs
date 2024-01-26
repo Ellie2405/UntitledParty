@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class Player : MonoBehaviour
     [Header("Animations")]
     [SerializeField] Sprite[] WalkAnimation;
     [SerializeField] Animator AnimatorComp;
+
+    [Header("Mask")]
+    [SerializeField] public GameObject Mask;
 
 
     [Header("NPC")]
@@ -60,6 +65,19 @@ public class Player : MonoBehaviour
         }
 
 
+    }
+
+    public void ShitchMasks()
+    {
+        GameObject PlayerMask = Mask;
+        GameObject NPCMask = NearNPC.GetComponent<NPC>().Mask;
+        Mask = NPCMask;
+        Mask.transform.SetParent(transform);
+        NearNPC.GetComponent<NPC>().Mask = PlayerMask;
+        NearNPC.GetComponent<NPC>().Mask.transform.SetParent(NearNPC.transform);
+
+        Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
+        NearNPC.GetComponent<NPC>().Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
     }
 
     void InteractWithNPC (List<GameObject> NPC)

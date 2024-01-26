@@ -14,6 +14,7 @@ public class MiniGame : MonoBehaviour
     [SerializeField] List<GameObject> AllRope;
 
     [SerializeField] GM gm;
+    [SerializeField] Player player;
 
     int LastSideTaped = 0;
     int NumDone;
@@ -91,6 +92,7 @@ public class MiniGame : MonoBehaviour
         MiniGameObj.SetActive(false);
 
         gm.LeaveConvWithNPC();
+        player.ShitchMasks();
     }
 
  
