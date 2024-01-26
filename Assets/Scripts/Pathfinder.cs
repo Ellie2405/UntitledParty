@@ -11,7 +11,7 @@ public class Pathfinder : MonoBehaviour
     private List<Transform> waypoints = new List<Transform>();
     private int pathIndex;
 
-    bool CanMove = true;
+    public bool CanMove = true;
 
     private void Start()
     {

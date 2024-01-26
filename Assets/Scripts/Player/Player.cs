@@ -17,9 +17,11 @@ public class Player : MonoBehaviour
     [SerializeField] Animator AnimatorComp;
 
 
+    [Header("NPC")]
+    GameObject NearNPC;
     [Header("Other")]
     [SerializeField] IntecartionArea AreInteractionScript;
-
+    
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
     {
@@ -51,13 +53,30 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(AreInteractionScript.CanInteract)
-            Debug.Log("Can Interact");
-            else
-                Debug.Log("Cant Interact");
+            if (AreInteractionScript.CanInteract)
+                InteractWithNPC(AreInteractionScript.InteractNPC);
         }
 
 
+    }
+
+    void InteractWithNPC (List<GameObject> NPC)
+    {
+   
+        float Dis = 100;
+        foreach(GameObject npc in NPC)
+        {
+            if(Vector2.Distance(gameObject.transform.position,npc.transform.position) < Dis)
+            {
+                NearNPC = npc;
+                Dis = Vector2.Distance(gameObject.transform.position, npc.transform.position);
+            }
+
+        }
+
+
+        NearNPC.GetComponent<Pathfinder>().CanMove = false ;
+        NearNPC.GetComponent<NPC>().TurnOnTextBubble();
     }
 
     void FlipChecker()
