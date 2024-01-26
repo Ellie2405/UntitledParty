@@ -11,6 +11,8 @@ public class Pathfinder : MonoBehaviour
     private List<Transform> waypoints = new List<Transform>();
     private int pathIndex;
 
+    bool CanMove = true;
+
     private void Start()
     {
        foreach(Transform waypoint in path)
@@ -22,6 +24,7 @@ public class Pathfinder : MonoBehaviour
 
     private void Update()
     {
+        if(CanMove)
        FollowPath();
     }
 
@@ -37,5 +40,26 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            CanMove = false;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            StartCoroutine(ResetMOvemtn());
+        }
+    }
+
+    IEnumerator ResetMOvemtn ()
+    {
+        yield return new WaitForSeconds(1);
+        CanMove = true;
+    }
 
 }
