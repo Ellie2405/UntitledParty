@@ -7,9 +7,13 @@ using BitSplash.AI.GPT;
 public class NPC : MonoBehaviour
 {
     [SerializeField] GameObject TextBubble;
-    [SerializeField] Text TextBubbleText;
+    [SerializeField] public Text TextBubbleText;
+    [SerializeField] public Text TextBubbleHint1Text;
+    [SerializeField] public Text TextBubbleHint2Text;
     [SerializeField] string Response;
     [SerializeField] Pathfinder Path;
+    [SerializeField] GM gm;
+    [SerializeField] public GameObject Mask;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,18 +30,23 @@ public class NPC : MonoBehaviour
 
     public void TurnOnTextBubble ()
     {
-        StartCoroutine(TurnOnTextBubbleAct());
-
-        
-    }
-
-
-    IEnumerator TurnOnTextBubbleAct ()
-    {
+        TextBubbleText.gameObject.SetActive(true);
+        TextBubbleHint1Text.gameObject.SetActive(false);
+        TextBubbleHint2Text.gameObject.SetActive(false);
         TextBubble.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
-        TurnOffTextBubble();
+
     }
+
+    public void WriteHint (string hint)
+    {
+        TextBubbleText.gameObject.SetActive(false);
+        TextBubbleHint1Text.gameObject.SetActive(true);
+        TextBubbleHint2Text.gameObject.SetActive(true);
+        TextBubbleHint1Text.text = hint;
+
+    }
+
+
     public void TurnOffTextBubble()
     {
         TextBubble.gameObject.SetActive(false);
