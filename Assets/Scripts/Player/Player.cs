@@ -118,7 +118,8 @@ public class Player : MonoBehaviour
         else if (gm.SearchingEyes)
             {
 
-                if (gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
+                if (gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes &&
+                gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
                 {
                     StartComunicationWithNPC();
                 }
@@ -127,7 +128,8 @@ public class Player : MonoBehaviour
         else if (gm.SearchingMouth)
         {
 
-            if (gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth)
+            if (gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes &&
+                gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
             {
                 StartComunicationWithNPC();
             }
@@ -136,7 +138,8 @@ public class Player : MonoBehaviour
         else if (gm.SearchingEars)
         {
 
-            if (gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears)
+            if (gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears && gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes &&
+                gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
             {
 
                 //    END GAME 
