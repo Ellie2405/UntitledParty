@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     GameObject NearNPC;
     [Header("Other")]
     [SerializeField] IntecartionArea AreInteractionScript;
+    [SerializeField] GM gm;
     
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
 
         NearNPC.GetComponent<Pathfinder>().CanMove = false ;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
+        gm.MiniGameManager.StartMiniGame();
     }
 
     void FlipChecker()
