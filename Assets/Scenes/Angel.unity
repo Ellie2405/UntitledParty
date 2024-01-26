@@ -150,7 +150,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0267, y: 0.129, z: 0}
-  m_LocalScale: {x: 0.29116854, y: 0.5986578, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1011386714}
@@ -479,12 +479,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.24829364, y: 0.57004935}
-      - {x: -0.16836548, y: 0.17461604}
-      - {x: -0.12475979, y: -0.03612934}
-      - {x: 0.01769198, y: -0.20557696}
-      - {x: 0.17319715, y: -0.038028732}
-      - {x: 0.2691109, y: 0.5668523}
+    - - {x: -0.48355246, y: 0.62460214}
+      - {x: -0.4854018, y: 0.22737493}
+      - {x: -0.47894478, y: -0.37332982}
+      - {x: 0.021699488, y: -0.3737892}
+      - {x: 0.52762365, y: -0.38402045}
+      - {x: 0.5452844, y: 0.63504326}
   m_UseDelaunayMesh: 0
 --- !u!50 &1011386718
 Rigidbody2D:
@@ -525,8 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd951380e24e3674eb04c3edba08af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 1011386714}
-  speed: 1
+  path: {fileID: 5296545848476775921, guid: 8e01fbb547112fc4a8a367b9ac8d2cbe, type: 3}
+  speed: 0.1
   rb: {fileID: 1011386718}
   CanMove: 1
 --- !u!1 &1529732339
