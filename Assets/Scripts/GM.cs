@@ -8,6 +8,7 @@ public class GM : MonoBehaviour
     [SerializeField] public MiniGame MiniGameManager;
 
     [Header("NPC")]
+    [SerializeField] Player PlayerObj;
     public GameObject NowNPC;
 
     [Header("UI")]
@@ -33,6 +34,7 @@ public class GM : MonoBehaviour
 
     public void StartConv ()
     {
+    
         ButtonLeftText.SetActive(true);
         ButtonRightText.SetActive(true);
         ButtonMiddleText.SetActive(true);
@@ -40,6 +42,7 @@ public class GM : MonoBehaviour
 
     public void EndConv()
     {
+        PlayerObj.EndConv();
         ButtonLeftText.SetActive(false);
         ButtonRightText.SetActive(false);
         ButtonMiddleText.SetActive(false);
@@ -47,14 +50,18 @@ public class GM : MonoBehaviour
 
     public void StartMiniGame ()
     {
+             ButtonLeftText.SetActive(false);
+        ButtonRightText.SetActive(false);
+        ButtonMiddleText.SetActive(false);
+        PlayerObj.StartMiniGame();
         MiniGameManager.StartMiniGame();
-        EndConv();
+
     }
 
     public void LeaveConvWithNPC()
     {
-  
-            NowNPC.GetComponent<NPC>().TurnOffTextBubble();
+        PlayerObj.EndConv();
+        NowNPC.GetComponent<NPC>().TurnOffTextBubble();
             ButtonLeftText.SetActive(false);
             ButtonMiddleText.SetActive(false);
             ButtonRightText.SetActive(false);

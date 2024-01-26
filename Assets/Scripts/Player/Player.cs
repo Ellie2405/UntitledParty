@@ -22,11 +22,12 @@ public class Player : MonoBehaviour
     [Header("Other")]
     [SerializeField] IntecartionArea AreInteractionScript;
     [SerializeField] GM gm;
-    
+    Animator Anim;
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
     {
         // Get the Rigidbody2D component attached to the GameObject
+        Anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         ThisSprite = GetComponent<SpriteRenderer>();
         AnimatorComp = GetComponent<Animator>();
@@ -80,8 +81,22 @@ public class Player : MonoBehaviour
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
         gm.StartConv();
 
-
+        Anim.SetBool("Dialogue", true);
     }
+
+    public void EndConv ()
+    {
+        Anim.SetBool("Dialogue", false);
+        Anim.SetBool("MiniGame", false);
+
+ 
+    }
+
+    public void StartMiniGame ()
+    {
+
+        Anim.SetBool("MiniGame", true);
+    } 
 
     void FlipChecker()
     {
