@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     [Header("Mask")]
     [SerializeField] public GameObject Mask;
+    GenericMask NowMask;
 
 
     [Header("NPC")]
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] IntecartionArea AreInteractionScript;
     [SerializeField] GM gm;
     Animator Anim;
+    public bool isInMinigame;
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
     {
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
 
     public void ShitchMasks()
     {
+        StartCoroutine(MaskSwichingBool());
         GameObject PlayerMask = Mask;
         GameObject NPCMask = NearNPC.GetComponent<NPC>().Mask;
         Mask = NPCMask;
@@ -78,6 +81,13 @@ public class Player : MonoBehaviour
 
         Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
         NearNPC.GetComponent<NPC>().Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
+    }
+
+    IEnumerator MaskSwichingBool ()
+    {
+        isInMinigame = true;
+        yield return new WaitForSeconds(0.4f);
+        isInMinigame = false;
     }
 
     void InteractWithNPC (List<GameObject> NPC)
@@ -95,7 +105,52 @@ public class Player : MonoBehaviour
         }
         gm.NowNPC = NearNPC;
 
-        NearNPC.GetComponent<Pathfinder>().CanMove = false ;
+        NowMask = Mask.GetComponent<GenericMask>();
+        if (gm.SearchingSurface)
+        {
+    
+            if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
+            {
+                StartComunicationWithNPC();
+            }
+
+        }
+        else if (gm.SearchingEyes)
+            {
+
+                if (gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
+                {
+                    StartComunicationWithNPC();
+                }
+
+            }
+        else if (gm.SearchingMouth)
+        {
+
+            if (gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth)
+            {
+                StartComunicationWithNPC();
+            }
+
+        }
+        else if (gm.SearchingEars)
+        {
+
+            if (gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears)
+            {
+
+                //    END GAME 
+
+                Debug.Log("End Game");
+            }
+
+        }
+
+    }
+
+    void StartComunicationWithNPC ()
+    {
+        NearNPC.GetComponent<Pathfinder>().CanMove = false;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
         gm.StartConv();
 

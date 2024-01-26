@@ -4231,6 +4231,7 @@ MonoBehaviour:
   ButtonLeftText: {fileID: 1878525072}
   ButtonRightText: {fileID: 869496021}
   ButtonMiddleText: {fileID: 546210139}
+  HintState: 0
   HintGM: {fileID: 1693531023}
 --- !u!114 &1693531023
 MonoBehaviour:
@@ -4245,9 +4246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintsText:
-  - 'You search mask color:'
-  - 'The mask are looks like:'
-  - 'This person usualy near the:'
+  - 'Search for MASK color:'
+  - 'I think he with EYES color:'
+  - 'It with MOUTH color:'
+  - 'Try to find with EARS of:'
   NowHintNumber: 0
 --- !u!1 &1701236156
 GameObject:

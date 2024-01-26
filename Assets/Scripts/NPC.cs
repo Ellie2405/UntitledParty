@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour
     [SerializeField] Pathfinder Path;
     [SerializeField] GM gm;
     [SerializeField] public GameObject Mask;
+    [SerializeField] public  GenericMask MaskGenerec;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,12 +38,13 @@ public class NPC : MonoBehaviour
 
     }
 
-    public void WriteHint (string hint)
+    public void WriteHint (string hint,string objectation)
     {
         TextBubbleText.gameObject.SetActive(false);
         TextBubbleHint1Text.gameObject.SetActive(true);
         TextBubbleHint2Text.gameObject.SetActive(true);
         TextBubbleHint1Text.text = hint;
+        TextBubbleHint2Text.text = objectation;
 
     }
 
