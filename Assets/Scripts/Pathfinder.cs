@@ -5,7 +5,8 @@ using UnityEngine;
 public class Pathfinder : MonoBehaviour
 {
     [SerializeField] Transform path;
-    [SerializeField] float speed = 2f;
+    [SerializeField] float speed = 100f;
+    [SerializeField] Rigidbody2D rb;
 
     private List<Transform> waypoints = new List<Transform>();
     private int pathIndex;
@@ -21,16 +22,16 @@ public class Pathfinder : MonoBehaviour
 
     private void Update()
     {
-        FollowPath();
+       FollowPath();
     }
 
     private void FollowPath()
     {
         Vector3 targetPosition = waypoints[pathIndex].position;
-        float maxDelta = speed * Time.deltaTime;
-        this.transform.position = Vector2.MoveTowards(this.transform.position, targetPosition, maxDelta);
 
-        if(this.transform.position == targetPosition)
+        rb.velocity = (targetPosition - this.transform.position).normalized * speed;
+
+        if(Vector2.Distance(this.transform.position, targetPosition) < 1)
         {
             pathIndex = (pathIndex + 1) % waypoints.Count;
         }
