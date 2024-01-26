@@ -8,9 +8,10 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] float Speed; // Adjust this value to control the movement speed
+    [SerializeField] DynamicSkin dSkin;
     private Rigidbody2D rb;
     SpriteRenderer ThisSprite;
-    float horizontalInput;
+    public float horizontalInput;
     float verticalInput;
 
 
@@ -44,11 +45,12 @@ public class Player : MonoBehaviour
     {
 
         // Get input for movement
-         horizontalInput = Input.GetAxis("Horizontal");
-         verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+        dSkin.UpdateSkin(CheckDirection());
 
-       WalkAnimationFunc();
-        FlipChecker();
+        WalkAnimationFunc();
+        //FlipChecker();
         // Calculate the movement direction
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
 
@@ -58,15 +60,35 @@ public class Player : MonoBehaviour
         InputChecker();
     }
 
-    void InputChecker ()
+    void InputChecker()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (AreInteractionScript.CanInteract)
                 InteractWithNPC(AreInteractionScript.InteractNPC);
         }
 
 
+    }
+
+    int CheckDirection()
+    {
+        if (horizontalInput == 0)
+        {
+            if (verticalInput > 0)
+            {
+                return 1;
+            }
+            else return 0;
+        }
+        else
+        {
+            if (horizontalInput > 0)
+            {
+                return 3;
+            }
+            else return 2;
+        }
     }
 
     public void ShitchMasks()
@@ -83,20 +105,20 @@ public class Player : MonoBehaviour
         NearNPC.GetComponent<NPC>().Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
     }
 
-    IEnumerator MaskSwichingBool ()
+    IEnumerator MaskSwichingBool()
     {
         isInMinigame = true;
         yield return new WaitForSeconds(0.4f);
         isInMinigame = false;
     }
 
-    void InteractWithNPC (List<GameObject> NPC)
+    void InteractWithNPC(List<GameObject> NPC)
     {
-   
+
         float Dis = 100;
-        foreach(GameObject npc in NPC)
+        foreach (GameObject npc in NPC)
         {
-            if(Vector2.Distance(gameObject.transform.position,npc.transform.position) < Dis)
+            if (Vector2.Distance(gameObject.transform.position, npc.transform.position) < Dis)
             {
                 NearNPC = npc;
                 Dis = Vector2.Distance(gameObject.transform.position, npc.transform.position);
@@ -108,7 +130,7 @@ public class Player : MonoBehaviour
         NowMask = Mask.GetComponent<GenericMask>();
         if (gm.SearchingSurface)
         {
-    
+
             if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
             {
                 StartComunicationWithNPC();
@@ -116,20 +138,18 @@ public class Player : MonoBehaviour
 
         }
         else if (gm.SearchingEyes)
+        {
+
+            if (gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
             {
-
-                if (gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes &&
-                gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
-                {
-                    StartComunicationWithNPC();
-                }
-
+                StartComunicationWithNPC();
             }
+
+        }
         else if (gm.SearchingMouth)
         {
 
-            if (gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes &&
-                gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
+            if (gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth)
             {
                 StartComunicationWithNPC();
             }
@@ -138,8 +158,7 @@ public class Player : MonoBehaviour
         else if (gm.SearchingEars)
         {
 
-            if (gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears && gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes &&
-                gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
+            if (gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears)
             {
 
                 //    END GAME 
@@ -151,7 +170,7 @@ public class Player : MonoBehaviour
 
     }
 
-    void StartComunicationWithNPC ()
+    void StartComunicationWithNPC()
     {
         NearNPC.GetComponent<Pathfinder>().CanMove = false;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
@@ -160,30 +179,30 @@ public class Player : MonoBehaviour
         Anim.SetBool("Dialogue", true);
     }
 
-    public void EndConv ()
+    public void EndConv()
     {
         Anim.SetBool("Dialogue", false);
         Anim.SetBool("MiniGame", false);
 
- 
+
     }
 
-    public void StartMiniGame ()
+    public void StartMiniGame()
     {
 
         Anim.SetBool("MiniGame", true);
-    } 
+    }
 
     void FlipChecker()
     {
         if (horizontalInput > 0)
             ThisSprite.flipX = false;
-        else if(horizontalInput < 0 )
+        else if (horizontalInput < 0)
             ThisSprite.flipX = true;
 
     }
 
-    void WalkAnimationFunc ()
+    void WalkAnimationFunc()
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S))
             AnimatorComp.SetBool("Walk", true);
