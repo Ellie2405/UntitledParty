@@ -7,6 +7,7 @@ public class Pathfinder : MonoBehaviour
     [SerializeField] Transform path;
     [SerializeField] float speed = 100f;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] DynamicSkin dynamicSkin;
 
     private List<Transform> waypoints = new List<Transform>();
     private int pathIndex;
@@ -15,6 +16,7 @@ public class Pathfinder : MonoBehaviour
 
     private void Start()
     {
+        dynamicSkin = GetComponent<DynamicSkin>();
        foreach(Transform waypoint in path)
        {
             waypoints.Add(waypoint);
@@ -24,8 +26,10 @@ public class Pathfinder : MonoBehaviour
 
     private void Update()
     {
-        if(CanMove)
-       FollowPath();
+        if(CanMove) 
+            FollowPath();
+
+        dynamicSkin.UpdateSkin(rb.velocity.x, rb.velocity.y);
     }
 
     private void FollowPath()
