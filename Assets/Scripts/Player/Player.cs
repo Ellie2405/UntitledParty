@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     [SerializeField] Sprite[] WalkAnimation;
     [SerializeField] Animator AnimatorComp;
 
+
+    [Header("Other")]
+    [SerializeField] IntecartionArea AreInteractionScript;
+
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
     {
@@ -39,6 +43,21 @@ public class Player : MonoBehaviour
 
         // Set the velocity based on the movement direction and speed
         rb.velocity = movement * Speed;
+
+        InputChecker();
+    }
+
+    void InputChecker ()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(AreInteractionScript.CanInteract)
+            Debug.Log("Can Interact");
+            else
+                Debug.Log("Cant Interact");
+        }
+
+
     }
 
     void FlipChecker()
