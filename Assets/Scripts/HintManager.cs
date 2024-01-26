@@ -5,14 +5,15 @@ using UnityEngine.XR;
 
 public class HintManager : MonoBehaviour
 {
+    [SerializeField] GM gm;
     public List<string> HintsText;
     public int NowHintNumber;
     int NumberOfObjec;
 
-    string GoalSurface;
-    string GoalEar;
-    string GoalMonth;
-    string GoalEye;
+    public string GoalSurface;
+    public string GoalEar;
+    public string GoalMonth;
+    public string GoalEye;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,21 +42,25 @@ public class HintManager : MonoBehaviour
         {
             return GoalSurface;
             NumberOfObjec = 1;
+            gm.SearchingSurface = true;
         }
         else if (NumberOfObjec == 1)
         {
             return GoalEye;
             NumberOfObjec = 2;
+            gm.SearchingEyes = true;
         }
         else if (NumberOfObjec == 3)
         {
             return GoalMonth;
             NumberOfObjec = 4;
+            gm.SearchingMouth = true;
         }
         else
         {
             return GoalEar;
-            NumberOfObjec = 2;
+            NumberOfObjec = 5;
+            gm.SearchingEars = true;
         }
     }
 

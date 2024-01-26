@@ -9,6 +9,7 @@ public class GM : MonoBehaviour
 
     [Header("NPC")]
     [SerializeField] Player PlayerObj;
+    [SerializeField] GameObject TargetNPC;
     public GameObject NowNPC;
 
     [Header("UI")]
@@ -19,11 +20,28 @@ public class GM : MonoBehaviour
 
     [Header("Hints")]
    public bool HintState;
-    [SerializeField] HintManager HintGM;
+    [SerializeField] public  HintManager HintGM;
+
+    [Header("Searching")]
+    public bool SearchingSurface;
+    public bool SearchingEars;
+    public bool SearchingMouth;
+    public bool SearchingEyes;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetRandomTarget();
+    }
+
+    void SetRandomTarget ()
+    {
+        GameObject[] AllNPC = GameObject.FindGameObjectsWithTag("NPC");
+        int i = Random.RandomRange(0, AllNPC.Length);
+        TargetNPC = AllNPC[i];
+        HintGM.GetGoal(TargetNPC.GetComponent<NPC>().MaskGenerec.Surface,
+            TargetNPC.GetComponent<NPC>().MaskGenerec.Ears,
+            TargetNPC.GetComponent<NPC>().MaskGenerec.Mouth,
+            TargetNPC.GetComponent<NPC>().MaskGenerec.Eyes);
     }
 
     // Update is called once per frame

@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     [Header("Mask")]
     [SerializeField] public GameObject Mask;
+    GenericMask NowMask;
 
 
     [Header("NPC")]
@@ -104,7 +105,52 @@ public class Player : MonoBehaviour
         }
         gm.NowNPC = NearNPC;
 
-        NearNPC.GetComponent<Pathfinder>().CanMove = false ;
+        NowMask = Mask.GetComponent<GenericMask>();
+        if (gm.SearchingSurface)
+        {
+    
+            if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
+            {
+                StartComunicationWithNPC();
+            }
+
+        }
+        else if (gm.SearchingEyes)
+            {
+
+                if (gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
+                {
+                    StartComunicationWithNPC();
+                }
+
+            }
+        else if (gm.SearchingMouth)
+        {
+
+            if (gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth)
+            {
+                StartComunicationWithNPC();
+            }
+
+        }
+        else if (gm.SearchingEars)
+        {
+
+            if (gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears)
+            {
+
+                //    END GAME 
+
+                Debug.Log("End Game");
+            }
+
+        }
+
+    }
+
+    void StartComunicationWithNPC ()
+    {
+        NearNPC.GetComponent<Pathfinder>().CanMove = false;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
         gm.StartConv();
 
