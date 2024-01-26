@@ -37,12 +37,13 @@ public class NPC : MonoBehaviour
 
     }
 
-    public void WriteHint (string hint)
+    public void WriteHint (string hint,string objectation)
     {
         TextBubbleText.gameObject.SetActive(false);
         TextBubbleHint1Text.gameObject.SetActive(true);
         TextBubbleHint2Text.gameObject.SetActive(true);
         TextBubbleHint1Text.text = hint;
+        TextBubbleHint2Text.text = objectation;
 
     }
 

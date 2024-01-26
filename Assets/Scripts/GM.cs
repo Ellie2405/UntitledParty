@@ -18,7 +18,7 @@ public class GM : MonoBehaviour
 
 
     [Header("Hints")]
-    bool HintState;
+   public bool HintState;
     [SerializeField] HintManager HintGM;
     // Start is called before the first frame update
     void Start()
@@ -71,7 +71,7 @@ public class GM : MonoBehaviour
     public void AskHint()
     {
         HintState = true;
-        NowNPC.GetComponent<NPC>().WriteHint(HintGM.GetString());
+        NowNPC.GetComponent<NPC>().WriteHint(HintGM.GetString(), HintGM.GetObjectation());
     
         ButtonMiddleText.SetActive(false);
         ButtonRightText.SetActive(false);

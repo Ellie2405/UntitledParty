@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField] IntecartionArea AreInteractionScript;
     [SerializeField] GM gm;
     Animator Anim;
+    public bool isInMinigame;
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
     {
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour
 
     public void ShitchMasks()
     {
+        StartCoroutine(MaskSwichingBool());
         GameObject PlayerMask = Mask;
         GameObject NPCMask = NearNPC.GetComponent<NPC>().Mask;
         Mask = NPCMask;
@@ -78,6 +80,13 @@ public class Player : MonoBehaviour
 
         Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
         NearNPC.GetComponent<NPC>().Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
+    }
+
+    IEnumerator MaskSwichingBool ()
+    {
+        isInMinigame = true;
+        yield return new WaitForSeconds(0.4f);
+        isInMinigame = false;
     }
 
     void InteractWithNPC (List<GameObject> NPC)
