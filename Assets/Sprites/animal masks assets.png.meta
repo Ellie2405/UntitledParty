@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 28
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: animal masks assets_0
+      name: mask_dark_surface
       rect:
         serializedVersion: 2
         x: 66
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_1
+      name: mask_brown_mouth
       rect:
         serializedVersion: 2
         x: 66
@@ -139,7 +139,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_2
+      name: mask_brown_side_mouth
       rect:
         serializedVersion: 2
         x: 84
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_3
+      name: mask_white_mouth
       rect:
         serializedVersion: 2
         x: 34
@@ -181,7 +181,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_4
+      name: mask_white_side_mouth
       rect:
         serializedVersion: 2
         x: 52
@@ -202,7 +202,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_5
+      name: mask_blue_mouth
       rect:
         serializedVersion: 2
         x: 2
@@ -223,7 +223,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_6
+      name: mask_blue_side_mouth
       rect:
         serializedVersion: 2
         x: 21
@@ -244,7 +244,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_7
+      name: mask_green_mouth
       rect:
         serializedVersion: 2
         x: 2
@@ -265,7 +265,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_8
+      name: mask_green_side_mouth
       rect:
         serializedVersion: 2
         x: 22
@@ -286,7 +286,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_9
+      name: mask_turquoise_eyes
       rect:
         serializedVersion: 2
         x: 34
@@ -307,7 +307,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_10
+      name: mask_turquoise_side_eyes
       rect:
         serializedVersion: 2
         x: 54
@@ -328,7 +328,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_11
+      name: mask_green_eyes
       rect:
         serializedVersion: 2
         x: 66
@@ -349,7 +349,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -362,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_12
+      name: mask_green_side_eyes
       rect:
         serializedVersion: 2
         x: 84
@@ -370,7 +370,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -383,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_13
+      name: mask_blue_eyes
       rect:
         serializedVersion: 2
         x: 2
@@ -391,7 +391,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -404,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_14
+      name: mask_blue_side_eyes
       rect:
         serializedVersion: 2
         x: 22
@@ -412,7 +412,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -425,7 +425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_15
+      name: mask_brown_eyes
       rect:
         serializedVersion: 2
         x: 34
@@ -433,7 +433,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,7 +446,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_16
+      name: mask_brown_side_eyes
       rect:
         serializedVersion: 2
         x: 54
@@ -454,7 +454,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 12, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -475,7 +475,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -496,7 +496,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -509,7 +509,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_19
+      name: mask_green_surface
       rect:
         serializedVersion: 2
         x: 34
@@ -517,7 +517,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -530,7 +530,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_20
+      name: mask_green_side_surface
       rect:
         serializedVersion: 2
         x: 54
@@ -538,7 +538,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -551,7 +551,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_21
+      name: mask_brown_surface
       rect:
         serializedVersion: 2
         x: 66
@@ -559,7 +559,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -572,7 +572,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_22
+      name: mask_brown_side_surface
       rect:
         serializedVersion: 2
         x: 84
@@ -580,7 +580,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -593,7 +593,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_23
+      name: mask_white_surface
       rect:
         serializedVersion: 2
         x: 2
@@ -601,7 +601,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -614,7 +614,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_24
+      name: mask_white_side_surface
       rect:
         serializedVersion: 2
         x: 22
@@ -622,7 +622,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -635,7 +635,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_25
+      name: mask_bunny_ears
       rect:
         serializedVersion: 2
         x: 34
@@ -643,7 +643,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -656,7 +656,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_26
+      name: mask_bunny_side_ears
       rect:
         serializedVersion: 2
         x: 54
@@ -664,7 +664,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -677,7 +677,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_27
+      name: mask_cat_ears
       rect:
         serializedVersion: 2
         x: 66
@@ -685,7 +685,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -698,7 +698,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_28
+      name: mask_cat_side_ears
       rect:
         serializedVersion: 2
         x: 84
@@ -706,7 +706,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -719,7 +719,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_29
+      name: mask_bear_ears
       rect:
         serializedVersion: 2
         x: 2
@@ -727,7 +727,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -740,7 +740,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_30
+      name: mask_bear_side_ears
       rect:
         serializedVersion: 2
         x: 20
@@ -748,7 +748,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -769,7 +769,7 @@ TextureImporter:
         width: 5
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -782,7 +782,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_32
+      name: mask_antler_ears
       rect:
         serializedVersion: 2
         x: 34
@@ -790,7 +790,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -803,7 +803,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animal masks assets_33
+      name: mask_antler_side_ears
       rect:
         serializedVersion: 2
         x: 52
@@ -811,7 +811,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -834,40 +834,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      animal masks assets_0: -1566557044
-      animal masks assets_1: -2101055823
-      animal masks assets_10: 1230067144
-      animal masks assets_11: -2127669207
-      animal masks assets_12: -1903182021
-      animal masks assets_13: -2082912156
-      animal masks assets_14: 1043438107
-      animal masks assets_15: -1151278657
-      animal masks assets_16: -718828905
       animal masks assets_17: 59293623
       animal masks assets_18: 2049632620
-      animal masks assets_19: 973559643
-      animal masks assets_2: 1311298217
-      animal masks assets_20: 157205078
-      animal masks assets_21: -1632021734
-      animal masks assets_22: -1632163413
-      animal masks assets_23: -1917881359
-      animal masks assets_24: 183052360
-      animal masks assets_25: 1567590961
-      animal masks assets_26: 1419145247
-      animal masks assets_27: 1604604949
-      animal masks assets_28: -1107863430
-      animal masks assets_29: -551646408
-      animal masks assets_3: -568351250
-      animal masks assets_30: -434376330
       animal masks assets_31: -459122929
-      animal masks assets_32: 552391597
-      animal masks assets_33: 85155566
-      animal masks assets_4: -537928610
-      animal masks assets_5: 1744436502
-      animal masks assets_6: -1830688699
-      animal masks assets_7: 241652117
-      animal masks assets_8: 1330198961
-      animal masks assets_9: 98565116
+      mask_antler_ears: 552391597
+      mask_antler_side_ears: 85155566
+      mask_bear_ears: -551646408
+      mask_bear_side_ears: -434376330
+      mask_blue_eyes: -2082912156
+      mask_blue_mouth: 1744436502
+      mask_blue_side_eyes: 1043438107
+      mask_blue_side_mouth: -1830688699
+      mask_brown_eyes: -1151278657
+      mask_brown_mouth: -2101055823
+      mask_brown_side_eyes: -718828905
+      mask_brown_side_mouth: 1311298217
+      mask_brown_side_surface: -1632163413
+      mask_brown_surface: -1632021734
+      mask_bunny_ears: 1567590961
+      mask_bunny_side_ears: 1419145247
+      mask_cat_ears: 1604604949
+      mask_cat_side_ears: -1107863430
+      mask_dark_surface: -1566557044
+      mask_green_eyes: -2127669207
+      mask_green_mouth: 241652117
+      mask_green_side_eyes: -1903182021
+      mask_green_side_mouth: 1330198961
+      mask_green_side_surface: 157205078
+      mask_green_surface: 973559643
+      mask_turquoise_eyes: 98565116
+      mask_turquoise_side_eyes: 1230067144
+      mask_white_mouth: -568351250
+      mask_white_side_mouth: -537928610
+      mask_white_side_surface: 183052360
+      mask_white_surface: -1917881359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

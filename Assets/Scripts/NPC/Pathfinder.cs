@@ -8,6 +8,7 @@ public class Pathfinder : MonoBehaviour
     [SerializeField] float speed = 100f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] DynamicSkin dynamicSkin;
+    [SerializeField] GenericMask mask;
 
     private List<Transform> waypoints = new List<Transform>();
     private int pathIndex;
@@ -46,7 +47,9 @@ public class Pathfinder : MonoBehaviour
 
         if (!wasDirectionChecked) //change direction
         {
-            dynamicSkin.UpdateSkin(CheckDirection());
+            int direction = CheckDirection();
+            dynamicSkin.UpdateSkin(direction);
+            mask.UpdateView(direction);
             wasDirectionChecked = true;
         }
 

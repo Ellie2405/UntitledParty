@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5191691640666516344}
   - component: {fileID: 2290448369239407354}
   m_Layer: 0
-  m_Name: MaskHotem
+  m_Name: MaskMouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 655831827859282681}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 3129790014656558438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.47, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -132,10 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6d2636351bf8142aea39930bf45a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surface: {fileID: 0}
-  ears: {fileID: 0}
-  eyes: {fileID: 0}
-  mouth: {fileID: 0}
+  maskSpriteRenderers:
+  - {fileID: 1623746342259907934}
+  - {fileID: 4081725379695395045}
+  - {fileID: 5408704532350646066}
+  - {fileID: 2290448369239407354}
 --- !u!1 &4324366193362993655
 GameObject:
   m_ObjectHideFlags: 0
