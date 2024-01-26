@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca889265c942cd4438e3dbd890f793a4, type: 3}
   m_Name: Skin1
   m_EditorClassIdentifier: 
-  upSprites: []
-  downSprites: []
-  leftSprites: []
-  rightSprites: []
+  name: 
+  Sprites:
+  - {fileID: -2111602183, guid: 7783a9045edcf4e4e999b2533c1e2fb4, type: 3}
+  - {fileID: 1750757999, guid: 7783a9045edcf4e4e999b2533c1e2fb4, type: 3}
+  - {fileID: -2035491957, guid: 7783a9045edcf4e4e999b2533c1e2fb4, type: 3}
+  - {fileID: -1917875100, guid: 7783a9045edcf4e4e999b2533c1e2fb4, type: 3}

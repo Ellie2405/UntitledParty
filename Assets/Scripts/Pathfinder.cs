@@ -11,36 +11,65 @@ public class Pathfinder : MonoBehaviour
 
     private List<Transform> waypoints = new List<Transform>();
     private int pathIndex;
+    private bool wasDirectionChecked = false;
+    Vector3 targetPosition;
 
     public bool CanMove = true;
 
     private void Start()
     {
         dynamicSkin = GetComponent<DynamicSkin>();
-       foreach(Transform waypoint in path)
-       {
+        foreach (Transform waypoint in path)
+        {
             waypoints.Add(waypoint);
-       }
+        }
 
     }
 
     private void Update()
     {
-        if(CanMove) 
+        if (CanMove)
             FollowPath();
 
-        dynamicSkin.UpdateSkin(rb.velocity.x, rb.velocity.y);
     }
 
     private void FollowPath()
     {
-        Vector3 targetPosition = waypoints[pathIndex].position;
+        if (Vector2.Distance(this.transform.position, targetPosition) < 1) //enter if arrived at target and needs to change direction
+        {
+            pathIndex = (pathIndex + 1) % waypoints.Count;
+            targetPosition = waypoints[pathIndex].position;
+            wasDirectionChecked = false;
+        }
 
         rb.velocity = (targetPosition - this.transform.position).normalized * speed;
 
-        if(Vector2.Distance(this.transform.position, targetPosition) < 1)
+        if (!wasDirectionChecked) //change direction
         {
-            pathIndex = (pathIndex + 1) % waypoints.Count;
+            dynamicSkin.UpdateSkin(CheckDirection());
+            wasDirectionChecked = true;
+        }
+
+
+    }
+
+    int CheckDirection()
+    {
+        if (Mathf.Abs(rb.velocity.y) > Mathf.Abs(rb.velocity.x))
+        {
+            if (rb.velocity.y > 0)
+            {
+                return 1;
+            }
+            else return 0;
+        }
+        else
+        {
+            if (rb.velocity.x > 0)
+            {
+                return 3;
+            }
+            else return 2;
         }
     }
 
@@ -60,7 +89,7 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    IEnumerator ResetMOvemtn ()
+    IEnumerator ResetMOvemtn()
     {
         yield return new WaitForSeconds(1);
         CanMove = true;

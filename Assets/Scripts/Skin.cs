@@ -4,8 +4,5 @@
 public class SkinData : ScriptableObject
 {
     public string name;
-    public Sprite upSprites;
-    public Sprite downSprites;
-    public Sprite leftSprites;
-    public Sprite rightSprites;
+    public Sprite[] Sprites;
 }
