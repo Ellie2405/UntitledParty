@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class Player : MonoBehaviour
 {
@@ -16,16 +18,21 @@ public class Player : MonoBehaviour
     [SerializeField] Sprite[] WalkAnimation;
     [SerializeField] Animator AnimatorComp;
 
+    [Header("Mask")]
+    [SerializeField] public GameObject Mask;
+
 
     [Header("NPC")]
     GameObject NearNPC;
     [Header("Other")]
     [SerializeField] IntecartionArea AreInteractionScript;
-    
+    [SerializeField] GM gm;
+    Animator Anim;
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
     {
         // Get the Rigidbody2D component attached to the GameObject
+        Anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         ThisSprite = GetComponent<SpriteRenderer>();
         AnimatorComp = GetComponent<Animator>();
@@ -60,6 +67,19 @@ public class Player : MonoBehaviour
 
     }
 
+    public void ShitchMasks()
+    {
+        GameObject PlayerMask = Mask;
+        GameObject NPCMask = NearNPC.GetComponent<NPC>().Mask;
+        Mask = NPCMask;
+        Mask.transform.SetParent(transform);
+        NearNPC.GetComponent<NPC>().Mask = PlayerMask;
+        NearNPC.GetComponent<NPC>().Mask.transform.SetParent(NearNPC.transform);
+
+        Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
+        NearNPC.GetComponent<NPC>().Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
+    }
+
     void InteractWithNPC (List<GameObject> NPC)
     {
    
@@ -73,11 +93,28 @@ public class Player : MonoBehaviour
             }
 
         }
-
+        gm.NowNPC = NearNPC;
 
         NearNPC.GetComponent<Pathfinder>().CanMove = false ;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
+        gm.StartConv();
+
+        Anim.SetBool("Dialogue", true);
     }
+
+    public void EndConv ()
+    {
+        Anim.SetBool("Dialogue", false);
+        Anim.SetBool("MiniGame", false);
+
+ 
+    }
+
+    public void StartMiniGame ()
+    {
+
+        Anim.SetBool("MiniGame", true);
+    } 
 
     void FlipChecker()
     {
@@ -94,5 +131,10 @@ public class Player : MonoBehaviour
             AnimatorComp.SetBool("Walk", true);
         else
             AnimatorComp.SetBool("Walk", false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
     }
 }
