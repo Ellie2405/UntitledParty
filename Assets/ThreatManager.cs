@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ThreatManager : MonoBehaviour
@@ -5,10 +6,10 @@ public class ThreatManager : MonoBehaviour
     private float _threatLevel = 0f;
 
     public float IncreaseRate = 1f;
-    public float IncreaseRateModifier = 1f;
+    public float IncreaseRateModifier = 0f;
 
-    public float DecreaseRate = 0.5f;
-    public float DecreaseRateModifier = 0.5f;
+    public float DecreaseRate = 0f;
+    public float DecreaseRateModifier = 0f;
 
     public float MaxThreatLevel = 100f;
 
@@ -16,18 +17,23 @@ public class ThreatManager : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("UpdateThreat", 0f, UpdateThreatInterval);
+        StartCoroutine(UpdateThreat());
     }
 
-    private void UpdateThreat()
+    private IEnumerator UpdateThreat()
     {
-        IncreaseThreat(IncreaseRate); 
-        IncreaseRate += IncreaseRateModifier;
-        DecreaseRate += DecreaseRateModifier;
-        Debug.Log($"UpdateThreat, threatLevel - {_threatLevel}, " +
-                  $"increaseRate - {IncreaseRate}, " +
-                  $"decreaseRate - {DecreaseRate}");
+        while (true)
+        {
+            Debug.Log("YAY");
+            yield return new WaitForSeconds(UpdateThreatInterval);
+            IncreaseThreat(IncreaseRate);
+            IncreaseRate += IncreaseRateModifier;
+            DecreaseRate += DecreaseRateModifier;
+            Debug.Log($"UpdateThreat, threatLevel - {_threatLevel}, " +
+                      $"increaseRate - {IncreaseRate}, " +
+                      $"decreaseRate - {DecreaseRate}");
 
+        }
     }
 
     public void IncreaseThreat(float amount)

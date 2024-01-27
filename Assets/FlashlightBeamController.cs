@@ -3,39 +3,39 @@ using UnityEngine;
 
 public class FlashlightBeamController : MonoBehaviour
 {
-    public BodyguardController bodyguard;
-    private Rigidbody2D bodyguardRigidbody;
+    public BouncerController bouncer;
+    private Rigidbody2D bouncerRigidbody;
 
-    public float rotationSpeed = 20f;
+    [Header("Beam Properties")]
     public bool shouldRotate = true;
     public int beamMovementDegreeLimit = 30;
+    public float regularRotationSpeed = 20f;
     public float snapRotationSpeed = 200f;
-    
+
+
     private bool snapRequired = false;
     private Vector3 rotationAxis = Vector3.forward;
 
     void Start()
     {
-        bodyguard = transform.parent.GetComponent<BodyguardController>();
-        bodyguardRigidbody = transform.parent.GetComponent<Rigidbody2D>();
+        bouncer = transform.parent.GetComponent<BouncerController>();
+        bouncerRigidbody = transform.parent.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!shouldRotate) return;
-        //BodyguardController.Check
+
         int currentAngle = (int) 360 - NormaliseAngle((int) transform.localEulerAngles.z - 180);
  
-        float rotationSpeed = 20f;
+        float rotationSpeed = regularRotationSpeed;
 
-        int bodyguardMovingDegree = (int) (360 + Mathf.Atan2(bodyguardRigidbody.velocity.x, bodyguardRigidbody.velocity.y) * (180 / Mathf.PI)) % 360;
+        int bouncerMovingDegree = (int) (360 + Mathf.Atan2(bouncerRigidbody.velocity.x, bouncerRigidbody.velocity.y) * (180 / Mathf.PI)) % 360;
 
-        int maximumRotationAngle = NormaliseAngle(bodyguardMovingDegree + beamMovementDegreeLimit);
-        
-        int minimumRotationAngle = NormaliseAngle(bodyguardMovingDegree - beamMovementDegreeLimit);
+        int maximumRotationAngle = NormaliseAngle(bouncerMovingDegree + beamMovementDegreeLimit);
+        int minimumRotationAngle = NormaliseAngle(bouncerMovingDegree - beamMovementDegreeLimit);
 
-        //transform.
 
         if (!IsAngleInRange(currentAngle, minimumRotationAngle, maximumRotationAngle))
         {
@@ -62,9 +62,8 @@ public class FlashlightBeamController : MonoBehaviour
         {
             rotationSpeed = snapRotationSpeed;
         }
-        transform.RotateAround(bodyguard.transform.position, rotationAxis, rotationSpeed * Time.deltaTime);
 
-
+        transform.RotateAround(bouncer.transform.position, rotationAxis, rotationSpeed * Time.deltaTime);
     }
     private bool IsAngleInRange(int angle, int lower, int upper)
     {

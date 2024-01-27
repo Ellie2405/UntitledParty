@@ -4,18 +4,23 @@ using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
 
-public class BodyguardController : Pathfinder
+public class BouncerController : Pathfinder
 {
     FlashlightBeamController flashlightBeamController;
+    
     public float threatIncreaseTime = 1f;
     public float threatIncreaseAmount = 15;
     ThreatManager threatManager;
+    MiniGame minigameManager;
+
+    private bool isInteracting = false;
     private float timeSinceLastPunishment = 0;
 
     protected new void Start()
     {
         threatManager = GameObject.FindGameObjectWithTag("TM").GetComponent<ThreatManager>();
-
+        minigameManager = FindObjectOfType<MiniGame>();
+        
         flashlightBeamController = this.GetComponentInChildren<FlashlightBeamController>();
         
         base.Start();
@@ -23,36 +28,46 @@ public class BodyguardController : Pathfinder
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (!isInteracting && other.CompareTag("Player") && other.gameObject.GetComponent<Player>().isInMinigame)
         {
-            if (other.gameObject.GetComponent<Player>().isInMinigame)
-            {
-                threatManager.IncreaseThreat(100);
-            }
+            isInteracting = true;
+            // Stop flashlight and bouncer
             flashlightBeamController.shouldRotate = false;
             canMove = false;
+            // Cancel minigame
+            minigameManager.EndMiniGame(false);
+
+
         }
     }
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collider.CompareTag("Player"))
+        //Debug.Log("TriggerStay: " + other.name);
+        if (isInteracting && other.CompareTag("Player") && other.gameObject.GetComponent<Player>().isInMinigame)
         {
             timeSinceLastPunishment += Time.fixedDeltaTime;
-
             if (timeSinceLastPunishment >= threatIncreaseTime)
             {
-                timeSinceLastPunishment = 0;
                 threatManager.IncreaseThreat(threatIncreaseAmount);
+                timeSinceLastPunishment = 0;
+
             }
         }   
     }
-    private void OnTriggerExit2D(Collider2D collider)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (isInteracting && other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<Player>().isInMinigame)
         {
             flashlightBeamController.shouldRotate = true;
-            StartCoroutine(base.ResetMOvemtn());
+            StartCoroutine(ResetInteraction());
         }
+    }
+
+    protected IEnumerator ResetInteraction()
+    {
+        yield return new WaitForSeconds(1);
+        isInteracting = false;
+        canMove = true;
     }
 
 }

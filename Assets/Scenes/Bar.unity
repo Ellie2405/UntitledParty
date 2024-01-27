@@ -463,6 +463,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &787365316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787365318}
+  - component: {fileID: 787365317}
+  m_Layer: 0
+  m_Name: MinigameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &787365317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787365316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86478ef918c134a4d85518e216553db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
+  MiniGameObj: {fileID: 0}
+  Rope: {fileID: 0}
+  NowRope: {fileID: 0}
+  StartPointForRope: {fileID: 0}
+  NumbOfLines: 0
+  AllRope: []
+  gm: {fileID: 0}
+  player: {fileID: 0}
+--- !u!4 &787365318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787365316}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6020207, y: 0.5547558, z: -0.0134066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &831234859
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +780,7 @@ GameObject:
   - component: {fileID: 1226851521}
   - component: {fileID: 1226851525}
   m_Layer: 0
-  m_Name: Bodyguard
+  m_Name: Bouncer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -776,7 +829,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &1226851523
@@ -932,6 +985,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1310527072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1568603766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568603768}
+  - component: {fileID: 1568603767}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1568603767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568603766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2b868dddeeb4c3ea32238aaefd3b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MiniGameManager: {fileID: 0}
+  PlayerObj: {fileID: 0}
+  NowNPC: {fileID: 0}
+  ButtonLeftText: {fileID: 0}
+  ButtonRightText: {fileID: 0}
+  ButtonMiddleText: {fileID: 0}
+  HintGM: {fileID: 0}
+--- !u!4 &1568603768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568603766}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6020207, y: 0.5547558, z: -0.0134066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1575661339
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,10 +1082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c10f98b8aec5574889b6320b4895747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyguard: {fileID: 1226851521}
-  rotationSpeed: 20
+  bouncer: {fileID: 0}
   shouldRotate: 1
   beamMovementDegreeLimit: 30
+  regularRotationSpeed: 20
+  snapRotationSpeed: 200
 --- !u!212 &1575661342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1024,7 +1129,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1512,3 +1617,5 @@ SceneRoots:
   - {fileID: 1226851524}
   - {fileID: 2119085083}
   - {fileID: 1633194526}
+  - {fileID: 1568603768}
+  - {fileID: 787365318}
