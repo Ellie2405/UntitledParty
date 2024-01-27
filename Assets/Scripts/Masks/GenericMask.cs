@@ -5,7 +5,7 @@ using UnityEngine;
 public class GenericMask : MonoBehaviour
 {
     // Order is surface, ears, eyes, mouth (top to bottom)
-    [SerializeField] List<SpriteRenderer> maskSpriteRenderers;
+    [SerializeField] public List<SpriteRenderer> maskSpriteRenderers;
 
     private List<Sprite> maskSpritesFront;
     private List<Sprite> maskSpritesSide;

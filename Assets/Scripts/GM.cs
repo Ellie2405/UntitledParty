@@ -9,7 +9,7 @@ public class GM : MonoBehaviour
 
     [Header("NPC")]
     [SerializeField] Player PlayerObj;
-    [SerializeField] GameObject TargetNPC;
+    [SerializeField] public GameObject TargetNPC;
     public GameObject NowNPC;
 
     [Header("UI")]
