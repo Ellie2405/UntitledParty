@@ -17,6 +17,7 @@ public class NPC : MonoBehaviour
     [SerializeField] public GameObject Mask;
     [SerializeField] public  GenericMask MaskGenerec;
     [SerializeField] Canvas MainCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
