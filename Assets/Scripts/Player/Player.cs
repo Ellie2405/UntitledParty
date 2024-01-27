@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] GM gm;
     Animator Anim;
     int MovingDirection;   // -1 = left   0 = stand  1 = right
+    public bool isInMinigame;
     void Start()
     {
         // Get the Rigidbody2D component attached to the GameObject
@@ -95,7 +96,7 @@ public class Player : MonoBehaviour
         }
         gm.NowNPC = NearNPC;
 
-        NearNPC.GetComponent<Pathfinder>().CanMove = false ;
+        NearNPC.GetComponent<Pathfinder>().canMove = false ;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
         gm.StartConv();
 

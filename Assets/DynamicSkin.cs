@@ -5,10 +5,12 @@ public class DynamicSkin : MonoBehaviour
 {
     public SkinData skins;
     private SpriteRenderer spriteRenderer;
+    public bool useRandomSkin = true;
 
     void Start()
     {
-        skins = SkinManager.Instance.GetRandomSkin();
+        if (useRandomSkin)
+            skins = SkinManager.Instance.GetRandomSkin();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)

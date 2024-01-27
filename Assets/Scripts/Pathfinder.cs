@@ -6,7 +6,7 @@ public class Pathfinder : MonoBehaviour
 {
     [SerializeField] Transform path;
     [SerializeField] float speed = 100f;
-    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] DynamicSkin dynamicSkin;
 
     private List<Transform> waypoints = new List<Transform>();
@@ -14,9 +14,9 @@ public class Pathfinder : MonoBehaviour
     private bool wasDirectionChecked = false;
     Vector3 targetPosition;
 
-    public bool CanMove = true;
+    public bool canMove = true;
 
-    private void Start()
+    protected void Start()
     {
         dynamicSkin = GetComponent<DynamicSkin>();
         foreach (Transform waypoint in path)
@@ -28,8 +28,17 @@ public class Pathfinder : MonoBehaviour
 
     private void Update()
     {
-        if (CanMove)
+        //Debug.Log(Mathf.Atan2(rb.velocity.x, rb.velocity.y) * Mathf.Rad2Deg + 180);
+        if (canMove)
+        {
+            //Debug.Log("CAn move");
             FollowPath();
+        }
+        else
+        {
+            rigidBody.velocity = Vector2.zero;
+        }
+            
 
     }
 
@@ -42,7 +51,7 @@ public class Pathfinder : MonoBehaviour
             wasDirectionChecked = false;
         }
 
-        rb.velocity = (targetPosition - this.transform.position).normalized * speed;
+        rigidBody.velocity = (targetPosition - this.transform.position).normalized * speed;
 
         if (!wasDirectionChecked) //change direction
         {
@@ -53,19 +62,20 @@ public class Pathfinder : MonoBehaviour
 
     }
 
-    int CheckDirection()
+    public int CheckDirection()
     {
-        if (Mathf.Abs(rb.velocity.y) > Mathf.Abs(rb.velocity.x))
+        if (Mathf.Abs(rigidBody.velocity.y) > Mathf.Abs(rigidBody.velocity.x))
         {
-            if (rb.velocity.y > 0)
+            if (rigidBody.velocity.y > 0)
             {
                 return 1;
             }
             else return 0;
+            
         }
         else
         {
-            if (rb.velocity.x > 0)
+            if (rigidBody.velocity.x > 0)
             {
                 return 3;
             }
@@ -74,25 +84,25 @@ public class Pathfinder : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
-            CanMove = false;
+        if (collider.gameObject.CompareTag("Player"))
+            canMove = false;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player"))
         {
-
+            Debug.Log("Trigger exited");
             StartCoroutine(ResetMOvemtn());
         }
     }
 
-    IEnumerator ResetMOvemtn()
+    protected IEnumerator ResetMOvemtn()
     {
         yield return new WaitForSeconds(1);
-        CanMove = true;
+        canMove = true;
     }
 
 }

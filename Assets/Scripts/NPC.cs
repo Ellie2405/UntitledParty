@@ -51,7 +51,7 @@ public class NPC : MonoBehaviour
     {
         TextBubble.gameObject.SetActive(false);
         GenText();
-        Path.CanMove = true;
+        Path.canMove = true;
     }
 
 
