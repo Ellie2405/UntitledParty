@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         GenText();
     }
 
@@ -39,7 +39,7 @@ public class NPC : MonoBehaviour
     IEnumerator TimerForOffE()
     {
         yield return new WaitForSeconds(2);
-        Debug.Log("OFf e");
+       
         TurnOffPressE();
     }
 
@@ -87,5 +87,22 @@ public class NPC : MonoBehaviour
     {
         Response = text;
         TextBubbleText.text = Response;
+    }
+
+    public void StartMiniGame ()
+    {
+        gm.StartMiniGame();
+    }
+
+
+    public void LeavConv()
+    {
+        gm.LeaveConvWithNPC();
+    }
+
+
+    public void AskHint ()
+    {
+        gm.AskHint();
     }
 }

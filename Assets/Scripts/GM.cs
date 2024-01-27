@@ -31,18 +31,24 @@ public class GM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetRandomTarget();
+        StartCoroutine(SetRandomTargetWait());
     }
 
+    IEnumerator SetRandomTargetWait ()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SetRandomTarget();
+    }
     void SetRandomTarget ()
     {
         GameObject[] AllNPC = GameObject.FindGameObjectsWithTag("NPC");
-        int i = Random.RandomRange(0, AllNPC.Length);
+        int i = Random.Range(0, AllNPC.Length - 1);
+        Debug.Log("Name: " +  AllNPC[i].name);
         TargetNPC = AllNPC[i];
-        HintGM.GetGoal(TargetNPC.GetComponent<NPC>().MaskGenerec.Surface,
-            TargetNPC.GetComponent<NPC>().MaskGenerec.Ears,
-            TargetNPC.GetComponent<NPC>().MaskGenerec.Mouth,
-            TargetNPC.GetComponent<NPC>().MaskGenerec.Eyes);
+        HintGM.GetGoal(AllNPC[i].GetComponent<NPC>().MaskGenerec.SurfaceName,
+            AllNPC[i].GetComponent<NPC>().MaskGenerec.EarsName,
+            AllNPC[i].GetComponent<NPC>().MaskGenerec.MouthName,
+            AllNPC[i].GetComponent<NPC>().MaskGenerec.EyesName);
     }
 
     // Update is called once per frame

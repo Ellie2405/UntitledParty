@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
 
     [Header("NPC")]
-    GameObject NearNPC;
+    [SerializeField] GameObject NearNPC;
     [Header("Other")]
     [SerializeField] IntecartionArea AreInteractionScript;
     [SerializeField] GM gm;
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         float Dis = 100;
         foreach (GameObject npc in AreInteractionScript.InteractNPC)
         {
-            if (Vector2.Distance(gameObject.transform.position, npc.transform.position) < Dis && Vector2.Distance(gameObject.transform.position, npc.transform.position) < 5)
+            if (Vector2.Distance(gameObject.transform.position, npc.transform.position) < Dis && Vector2.Distance(gameObject.transform.position, npc.transform.position) < 10)
             {
                 NearNPC = npc;
                 Dis = Vector2.Distance(gameObject.transform.position, npc.transform.position);
@@ -79,6 +79,7 @@ public class Player : MonoBehaviour
 
         foreach (GameObject npc in AreInteractionScript.InteractNPC)
             npc.GetComponent<NPC>().TurnOffPressE();
+        if(NearNPC !=null)
         NearNPC.GetComponent<NPC>().TurnOnPressE();
 
     }
@@ -239,6 +240,10 @@ public class Player : MonoBehaviour
                 NearNPC.GetComponent<NPC>().TurnOffPressE();
             }
 
+        }
+        else
+        {
+            StartComunicationWithNPC();
         }
 
     }

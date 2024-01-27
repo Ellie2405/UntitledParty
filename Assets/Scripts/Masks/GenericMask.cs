@@ -13,6 +13,10 @@ public class GenericMask : MonoBehaviour
     private Vector3 normalScale = Vector3.one;
     private Vector3 flippedScale = new Vector3(-1, 1, 1);
 
+    public string SurfaceName;
+    public string EarsName;
+    public string EyesName;
+    public string MouthName;
 
     public string Surface { get { return maskSpritesFront[0].name.Split("_")[1]; } }
     public string Ears { get { return maskSpritesFront[1].name.Split("_")[1]; } }
@@ -25,6 +29,11 @@ public class GenericMask : MonoBehaviour
         maskSpritesFront = sprites[0];
         maskSpritesSide = sprites[1];
         SetFrontView();
+
+        SurfaceName = Surface;
+        EarsName = Ears;
+        EyesName = Eyes;
+        MouthName = Mouth;
     }
 
     public void UpdateView(int direction)

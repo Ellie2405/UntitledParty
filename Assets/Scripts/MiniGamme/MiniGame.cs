@@ -74,25 +74,31 @@ public class MiniGame : MonoBehaviour
                 }
                 else
                 {
-                    EndMiniGame();
+                    EndMiniGame(true);
                 }
 
             }
         }
     }
-    void EndMiniGame ()
+    void EndMiniGame (bool Good)
     {
-        NumDone = 0;
-        LastSideTaped = 0;
-        foreach(GameObject ropes in AllRope)
-        {
-            Destroy(ropes);
-        }
-        AllRope.Clear();
-        MiniGameObj.SetActive(false);
+      
+            NumDone = 0;
+            LastSideTaped = 0;
+            foreach (GameObject ropes in AllRope)
+            {
+                Destroy(ropes);
+            }
+            AllRope.Clear();
+            MiniGameObj.SetActive(false);
 
-        gm.LeaveConvWithNPC();
-        player.ShitchMasks();
+            gm.LeaveConvWithNPC();
+        if (Good)
+        {
+            player.ShitchMasks();
+        }
+
+        
     }
 
  
