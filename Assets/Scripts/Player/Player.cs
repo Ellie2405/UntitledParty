@@ -58,7 +58,30 @@ public class Player : MonoBehaviour
         rb.velocity = movement * Speed;
 
         InputChecker();
+        NearChecker();
     }
+    void NearChecker ()
+    {
+        float Dis = 100;
+        foreach (GameObject npc in AreInteractionScript.InteractNPC)
+        {
+            if (Vector2.Distance(gameObject.transform.position, npc.transform.position) < Dis && Vector2.Distance(gameObject.transform.position, npc.transform.position) < 5)
+            {
+                NearNPC = npc;
+                Dis = Vector2.Distance(gameObject.transform.position, npc.transform.position);
+            }
+            else
+                NearNPC = null;
+
+        }
+
+        foreach (GameObject npc in AreInteractionScript.InteractNPC)
+            npc.GetComponent<NPC>().TurnOffPressE();
+        NearNPC.GetComponent<NPC>().TurnOnPressE();
+
+    }
+
+
 
     void InputChecker()
     {
@@ -135,35 +158,53 @@ public class Player : MonoBehaviour
             {
                 StartComunicationWithNPC();
             }
+            else
+            {
+                NearNPC.GetComponent<NPC>().TurnOffPressE();
+            }
 
         }
         else if (gm.SearchingEyes)
         {
 
-            if (gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
+            if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
             {
                 StartComunicationWithNPC();
+            }
+            else
+            {
+                NearNPC.GetComponent<NPC>().TurnOffPressE();
             }
 
         }
         else if (gm.SearchingMouth)
         {
 
-            if (gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth)
+            if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes
+                && gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth)
             {
                 StartComunicationWithNPC();
+            }
+            else
+            {
+                NearNPC.GetComponent<NPC>().TurnOffPressE();
             }
 
         }
         else if (gm.SearchingEars)
         {
 
-            if (gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears)
+            if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes
+                && gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth && gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears)
             {
 
                 //    END GAME 
 
                 Debug.Log("End Game");
+            }
+            else
+            {
+                NearNPC.GetComponent<NPC>().TurnOffPressE();
             }
 
         }
@@ -174,6 +215,7 @@ public class Player : MonoBehaviour
     {
         NearNPC.GetComponent<Pathfinder>().CanMove = false;
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
+        NearNPC.GetComponent<NPC>().TurnOffPressE();
         gm.StartConv();
 
         Anim.SetBool("Dialogue", true);

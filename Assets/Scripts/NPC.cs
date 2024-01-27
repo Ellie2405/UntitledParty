@@ -6,6 +6,7 @@ using BitSplash.AI.GPT;
 
 public class NPC : MonoBehaviour
 {
+    [SerializeField] GameObject PressE;
     [SerializeField] GameObject TextBubble;
     [SerializeField] public Text TextBubbleText;
     [SerializeField] public Text TextBubbleHint1Text;
@@ -26,6 +27,25 @@ public class NPC : MonoBehaviour
     {
         var Convo = ChatGPTConversation.Start(this);
         Convo.Say("You are a Game NPC that are in party. i need from you to input me a small text that you gonna say to a user that starting to talk with you, something random and funny. its need to be maximum 2 lines. its need to be clean text becouse i gonna input your response directly to the game");
+
+    }
+
+    public void TurnOnPressE ()
+    {
+        PressE.SetActive(true);
+        StartCoroutine(TimerForOffE());
+    }
+
+    IEnumerator TimerForOffE()
+    {
+        yield return new WaitForSeconds(2);
+        Debug.Log("OFf e");
+        TurnOffPressE();
+    }
+
+    public void TurnOffPressE()
+    {
+        PressE.SetActive(false);
 
     }
 

@@ -33,7 +33,10 @@ public class IntecartionArea : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("NPC"))
+        {
+         //   other.gameObject.GetComponent<NPC>().TurnOffPressE();
             InteractNPC.Remove(other.gameObject);
+        }
 
         if (InteractNPC.Count == 0)
             CanInteract = false;
