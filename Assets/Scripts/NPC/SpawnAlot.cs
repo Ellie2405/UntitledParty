@@ -6,17 +6,24 @@ public class SpawnAlot : MonoBehaviour
 {
     [SerializeField] GameObject NPC;
     [SerializeField] int count;
+    [SerializeField] float spawnRadius;
+    [SerializeField] List<Transform> spawnPoints;
     void Start()
     {
-        for(int i = 0; i < count; i++)
+        int NPCsPerSpawn = count / spawnPoints.Count;
+        NPCsPerSpawn += Random.Range(-1, 1) * 5; // surprise
+
+        foreach(Transform spawnPoint in spawnPoints)
         {
-            Instantiate(NPC, Random.insideUnitCircle * 30, Quaternion.identity);
+            SpawnAround(spawnPoint, NPCsPerSpawn);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void SpawnAround(Transform point, int count)
     {
-        
+        for(int i = 0; i < count; i++)
+        {
+            Instantiate(NPC, point.position + Random.insideUnitSphere * spawnRadius, Quaternion.identity);
+        }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 650467082348562910}
   - component: {fileID: 3461630221180141057}
   - component: {fileID: 5717997750784395820}
+  - component: {fileID: 8280261113269836126}
   - component: {fileID: 8065669603018909721}
   - component: {fileID: 7885959114853230449}
   - component: {fileID: 5995862814295429429}
@@ -96,17 +97,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6053443417074727931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd951380e24e3674eb04c3edba08af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 5296545848476775921, guid: 13231f83f2863db4aa83c9e05cb28df1, type: 3}
-  speed: 1
+  speed: 0
   rb: {fileID: 8065669603018909721}
   dynamicSkin: {fileID: 7885959114853230449}
   mask: {fileID: 350388878449233441}
   CanMove: 1
+--- !u!114 &8280261113269836126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053443417074727931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12395111e85cbe94db6cf45489365b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 8065669603018909721}
+  wobbleSpeed: 0.5
+  offset: {x: 0.06, y: 0.16}
 --- !u!50 &8065669603018909721
 Rigidbody2D:
   serializedVersion: 4
