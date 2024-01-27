@@ -15,5 +15,5 @@ MonoBehaviour:
   name: 
   Sprites: []
   DanceSprites:
-  - {fileID: 2094937736, guid: 083a33ca2a99d004eac72fadf34a346f, type: 3}
-  - {fileID: -1693144137, guid: 083a33ca2a99d004eac72fadf34a346f, type: 3}
+  - {fileID: 499901612, guid: 92c6a194eb99f644f8372cd4ce9aabd9, type: 3}
+  - {fileID: -1585182231, guid: 92c6a194eb99f644f8372cd4ce9aabd9, type: 3}

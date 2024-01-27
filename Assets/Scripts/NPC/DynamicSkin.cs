@@ -37,7 +37,6 @@ public class DynamicSkin : MonoBehaviour
             counter += Time.deltaTime;
             if (counter > beat)
             {
-                print("move");
                 counter -= beat;
                 spriteRenderer.sprite = skins.DanceSprites[danceIndex %= skins.DanceSprites.Length];
                 danceIndex++;

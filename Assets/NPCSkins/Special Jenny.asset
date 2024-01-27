@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca889265c942cd4438e3dbd890f793a4, type: 3}
-  m_Name: Static 2
+  m_Name: Special Jenny
   m_EditorClassIdentifier: 
   name: 
-  Sprites: []
+  Sprites:
+  - {fileID: -1351590010, guid: afdca8da1fac040409cd1929daefac73, type: 3}
   DanceSprites:
-  - {fileID: 2067520341, guid: 92c6a194eb99f644f8372cd4ce9aabd9, type: 3}
-  - {fileID: 181776714, guid: 92c6a194eb99f644f8372cd4ce9aabd9, type: 3}
+  - {fileID: 1392263074, guid: afdca8da1fac040409cd1929daefac73, type: 3}
+  - {fileID: 532587578, guid: afdca8da1fac040409cd1929daefac73, type: 3}
