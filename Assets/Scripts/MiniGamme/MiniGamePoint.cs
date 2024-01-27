@@ -7,7 +7,7 @@ public class MiniGamePoint : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] MiniGame MiniGameScript;
     [SerializeField] bool LastPoint;
-    bool Used;
+    public bool Used;
     public int Side;    // -1 = left    1 = right
     // Start is called before the first frame update
     void Start()

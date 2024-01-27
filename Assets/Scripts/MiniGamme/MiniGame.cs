@@ -91,7 +91,9 @@ public class MiniGame : MonoBehaviour
             }
             AllRope.Clear();
             MiniGameObj.SetActive(false);
-
+        GameObject[] points = GameObject.FindGameObjectsWithTag("Points");
+        foreach (GameObject point in points)
+            point.GetComponent<MiniGamePoint>().Used = false;
             gm.LeaveConvWithNPC();
         if (Good)
         {

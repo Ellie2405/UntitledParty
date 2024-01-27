@@ -22,6 +22,10 @@ public class GM : MonoBehaviour
    public bool HintState;
     [SerializeField] public  HintManager HintGM;
 
+    [Header("EndGame")]
+    [SerializeField] GameObject Fader;
+    [SerializeField] GameObject Win;
+
     [Header("Searching")]
     public bool SearchingSurface;
     public bool SearchingEars;
@@ -55,6 +59,12 @@ public class GM : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EndGameFunc ()
+    {
+        Fader.SetActive(true);
+        Win.SetActive(true);
     }
 
     public void StartConv ()

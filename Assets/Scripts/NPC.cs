@@ -16,17 +16,19 @@ public class NPC : MonoBehaviour
     [SerializeField] GM gm;
     [SerializeField] public GameObject Mask;
     [SerializeField] public  GenericMask MaskGenerec;
+    [SerializeField] Canvas MainCanvas;
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
-        GenText();
+      //  GenText();
+        MainCanvas.worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void GenText()
     {
-        var Convo = ChatGPTConversation.Start(this);
-        Convo.Say("You are a Game NPC that are in party. i need from you to input me a small text that you gonna say to a user that starting to talk with you, something random and funny. its need to be maximum 2 lines. its need to be clean text becouse i gonna input your response directly to the game");
+   //     var Convo = ChatGPTConversation.Start(this);
+    //    Convo.Say("You are a Game NPC that are in party. i need from you to input me a small text that you gonna say to a user that starting to talk with you, something random and funny. its need to be maximum 2 lines. its need to be clean text becouse i gonna input your response directly to the game");
 
     }
 
@@ -82,21 +84,24 @@ public class NPC : MonoBehaviour
     {
         
     }
+    /*
 
     void OnConversationResponse (string text)
     {
         Response = text;
         TextBubbleText.text = Response;
     }
-
+    */
     public void StartMiniGame ()
     {
+        Debug.Log("MiniGame");
         gm.StartMiniGame();
     }
 
 
     public void LeavConv()
     {
+       GetComponent<Wobble>().ResumeMove();
         gm.LeaveConvWithNPC();
     }
 

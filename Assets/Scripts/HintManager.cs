@@ -11,6 +11,7 @@ public class HintManager : MonoBehaviour
     public Image goalEarsImage;
     public Image goalEyesImage;
     public Image goalMouthImage;
+    public Text goalBlankText;
 
     public List<string> hintTextList;
     public int currentHintIndex = 0;
@@ -40,9 +41,9 @@ public class HintManager : MonoBehaviour
         Debug.Log(mask.maskSpriteRenderers.Count);
         Debug.Log(mask.maskSpriteRenderers[0].sprite);
         goalSurfaceImage.sprite = mask.maskSpriteRenderers[0].sprite;
-        /*goalEarsImage.sprite = mask.maskSpriteRenderers[1].sprite;
+        goalEarsImage.sprite = mask.maskSpriteRenderers[1].sprite;
         goalEyesImage.sprite = mask.maskSpriteRenderers[2].sprite;
-        goalMouthImage.sprite = mask.maskSpriteRenderers[3].sprite;*/
+        goalMouthImage.sprite = mask.maskSpriteRenderers[3].sprite;
     }
 
     
@@ -59,6 +60,7 @@ public class HintManager : MonoBehaviour
         switch (currentHintIndex)
         {
             case 0:
+                goalBlankText.enabled = false;
                 goalSurfaceImage.enabled = true;
                 break;
             case 1:
