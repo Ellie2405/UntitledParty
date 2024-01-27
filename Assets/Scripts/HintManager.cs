@@ -77,7 +77,7 @@ public class HintManager : MonoBehaviour
     public string GetObjectation()
     {
         
-        switch(currentHintIndex)
+        switch(currentHintIndex - 1)
         {
             case 0:
                 gm.SearchingSurface = true;

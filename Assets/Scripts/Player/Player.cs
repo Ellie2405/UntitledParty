@@ -187,7 +187,7 @@ public class Player : MonoBehaviour
         gm.NowNPC = NearNPC;
 
         NowMask = Mask.GetComponent<GenericMask>();
-        if (gm.SearchingSurface && !gm.SearchingEyes && !gm.SearchingMouth && !gm.SearchingEars)
+        if (gm.SearchingSurface && !gm.SearchingEars && !gm.SearchingEyes && !gm.SearchingMouth)
         {
             Debug.Log("1");
             if (gm.HintGM.goalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
@@ -200,7 +200,7 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (gm.SearchingSurface && gm.SearchingEyes && !gm.SearchingMouth && !gm.SearchingEars)
+        else if (gm.SearchingSurface && gm.SearchingEars && !gm.SearchingEyes && !gm.SearchingMouth)
         {
             Debug.Log("2");
             if (gm.HintGM.goalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.goalEyes == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (gm.SearchingSurface && gm.SearchingEyes && gm.SearchingMouth && !gm.SearchingEars)
+        else if (gm.SearchingSurface && gm.SearchingEars && gm.SearchingEyes && !gm.SearchingMouth)
         {
             Debug.Log("3");
             if (gm.HintGM.goalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.goalEyes == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes
@@ -228,7 +228,7 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (gm.SearchingSurface && gm.SearchingEyes && gm.SearchingMouth && gm.SearchingEars)
+        else if (gm.SearchingSurface && gm.SearchingEars && gm.SearchingEyes && gm.SearchingMouth)
         {
 
             if (gm.HintGM.goalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.goalEyes == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes

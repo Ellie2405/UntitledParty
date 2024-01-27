@@ -35,7 +35,7 @@ public class IntecartionArea : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             //   other.gameObject.GetComponent<NPC>().TurnOffPressE();
-            other.GetComponent<NPC>().LeavConv();
+            //other.GetComponent<NPC>().LeavConv();
             InteractNPC.Remove(other.gameObject);
         }
 
