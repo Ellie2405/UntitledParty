@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Special Boar
   m_EditorClassIdentifier: 
   name: 
-  Sprites:
-  - {fileID: -1351590010, guid: afdca8da1fac040409cd1929daefac73, type: 3}
+  Sprites: []
   DanceSprites:
-  - {fileID: 1392263074, guid: afdca8da1fac040409cd1929daefac73, type: 3}
-  - {fileID: 532587578, guid: afdca8da1fac040409cd1929daefac73, type: 3}
+  - {fileID: 938342036, guid: 397c8021df7f26943b1281c9801eef29, type: 3}
+  - {fileID: -1801971380, guid: 397c8021df7f26943b1281c9801eef29, type: 3}
+  - {fileID: 594915810, guid: 397c8021df7f26943b1281c9801eef29, type: 3}
+  - {fileID: 1001171491, guid: 397c8021df7f26943b1281c9801eef29, type: 3}

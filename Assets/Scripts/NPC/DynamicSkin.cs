@@ -14,7 +14,8 @@ public class DynamicSkin : MonoBehaviour
 
     void Start()
     {
-        skins = SkinManager.Instance.GetRandomSkin();
+        if (skins == null)
+            skins = SkinManager.Instance.GetRandomSkin();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)

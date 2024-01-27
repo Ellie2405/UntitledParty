@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Special Jenny
   m_EditorClassIdentifier: 
   name: 
-  Sprites:
-  - {fileID: -1351590010, guid: afdca8da1fac040409cd1929daefac73, type: 3}
+  Sprites: []
   DanceSprites:
-  - {fileID: 1392263074, guid: afdca8da1fac040409cd1929daefac73, type: 3}
-  - {fileID: 532587578, guid: afdca8da1fac040409cd1929daefac73, type: 3}
+  - {fileID: -1966360416, guid: 10edb684bc840714cb3e923cd12745d8, type: 3}
+  - {fileID: -261049972, guid: 10edb684bc840714cb3e923cd12745d8, type: 3}
