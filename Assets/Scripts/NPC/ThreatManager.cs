@@ -1,7 +1,10 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class ThreatManager : MonoBehaviour
 {
+    [SerializeField] Player player; 
+    [SerializeField] GM gm; 
     private float _threatLevel = 0f;
 
     public float IncreaseRate = 1f;
@@ -37,7 +40,7 @@ public class ThreatManager : MonoBehaviour
 
         if (_threatLevel >= MaxThreatLevel)
         {
-            Debug.Log($"Game over!!");
+            player.EndGameAct();
         }
     }
 
@@ -46,6 +49,9 @@ public class ThreatManager : MonoBehaviour
         _threatLevel = Mathf.Max(0f, _threatLevel - amount / DecreaseRate);
         Debug.Log($"Threat level decreased to {_threatLevel}");
     }
+
+  
+   
 
     public float GetThreatLevel()
     {

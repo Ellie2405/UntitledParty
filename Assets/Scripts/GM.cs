@@ -27,6 +27,7 @@ public class GM : MonoBehaviour
     public bool SearchingEars;
     public bool SearchingMouth;
     public bool SearchingEyes;
+    public bool EndGame;
     // Start is called before the first frame update
     void Start()
     {

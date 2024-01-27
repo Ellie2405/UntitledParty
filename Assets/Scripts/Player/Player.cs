@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
+
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] GM gm;
     Animator Anim;
     public bool isInMinigame;
+    GameObject NearNPCSearch;
     int MovingDirection;   // -1 = left   0 = stand  1 = right
     void Start()
     {
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
         WalkAnimationFunc();
         //FlipChecker();
         // Calculate the movement direction
-        Vector2 movement = new Vector2(horizontalInput, verticalInput);
+        UnityEngine.Vector2 movement = new Vector2(horizontalInput, verticalInput);
 
         // Set the velocity based on the movement direction and speed
         rb.velocity = movement * Speed;
@@ -79,6 +81,36 @@ public class Player : MonoBehaviour
             npc.GetComponent<NPC>().TurnOffPressE();
         NearNPC.GetComponent<NPC>().TurnOnPressE();
 
+    }
+
+    public GameObject GetNearNPC ()
+    {
+        GameObject[] ALLNPC = GameObject.FindGameObjectsWithTag("NPC");
+   
+        float Dis = 1000;
+        foreach(GameObject npc in ALLNPC)
+        {
+            if(Vector2.Distance(npc.transform.position,transform.position) < Dis)
+            {
+                NearNPCSearch = npc;
+                Dis = Vector2.Distance(npc.transform.position, transform.position);
+            }
+        }
+
+        return NearNPCSearch;
+    }
+
+    public void EndGameAct ()
+    {
+        StartCoroutine(EndGameFunc());
+    }
+
+    IEnumerator EndGameFunc()
+    {
+        gm.EndGame = true;
+        GetNearNPC().transform.DOMove(transform.position, 0.7f);
+        yield return new WaitForSeconds(0.7f);
+        Debug.Log("EndGameScreen");
     }
 
 
