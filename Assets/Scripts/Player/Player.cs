@@ -155,6 +155,7 @@ public class Player : MonoBehaviour
         Mask = NPCMask;
         Mask.transform.SetParent(transform);
         NearNPC.GetComponent<NPC>().Mask = PlayerMask;
+        NearNPC.GetComponent<Wobble>().ResumeMove() ;
         NearNPC.GetComponent<NPC>().Mask.transform.SetParent(NearNPC.transform);
 
         Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
@@ -184,9 +185,9 @@ public class Player : MonoBehaviour
         gm.NowNPC = NearNPC;
 
         NowMask = Mask.GetComponent<GenericMask>();
-        if (gm.SearchingSurface)
+        if (gm.SearchingSurface && !gm.SearchingEyes && !gm.SearchingMouth && !gm.SearchingEars)
         {
-
+            Debug.Log("1");
             if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface)
             {
                 StartComunicationWithNPC();
@@ -197,9 +198,9 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (gm.SearchingEyes)
+        else if (gm.SearchingSurface && gm.SearchingEyes && !gm.SearchingMouth && !gm.SearchingEars)
         {
-
+            Debug.Log("2");
             if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes)
             {
                 StartComunicationWithNPC();
@@ -210,12 +211,13 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (gm.SearchingMouth)
+        else if (gm.SearchingSurface && gm.SearchingEyes && gm.SearchingMouth && !gm.SearchingEars)
         {
-
+            Debug.Log("3");
             if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes
                 && gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth)
             {
+         
                 StartComunicationWithNPC();
             }
             else
@@ -224,16 +226,16 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (gm.SearchingEars)
+        else if (gm.SearchingSurface && gm.SearchingEyes && gm.SearchingMouth && gm.SearchingEars)
         {
-
+            Debug.Log("4");
             if (gm.HintGM.GoalSurface == NearNPC.GetComponent<NPC>().MaskGenerec.Surface && gm.HintGM.GoalEye == NearNPC.GetComponent<NPC>().MaskGenerec.Eyes
                 && gm.HintGM.GoalMonth == NearNPC.GetComponent<NPC>().MaskGenerec.Mouth && gm.HintGM.GoalEar == NearNPC.GetComponent<NPC>().MaskGenerec.Ears)
             {
 
                 //    END GAME 
 
-                Debug.Log("End Game");
+                gm.EndGameFunc();
             }
             else
             {
@@ -241,7 +243,7 @@ public class Player : MonoBehaviour
             }
 
         }
-        else
+        else if (!gm.SearchingEars && !gm.SearchingMouth && !gm.SearchingEyes && !gm.SearchingSurface)
         {
             StartComunicationWithNPC();
         }
@@ -251,6 +253,7 @@ public class Player : MonoBehaviour
     void StartComunicationWithNPC()
     {
         NearNPC.GetComponent<Pathfinder>().CanMove = false;
+        NearNPC.GetComponent<Wobble>().StopMove();
         NearNPC.GetComponent<NPC>().TurnOnTextBubble();
         NearNPC.GetComponent<NPC>().TurnOffPressE();
         gm.StartConv();

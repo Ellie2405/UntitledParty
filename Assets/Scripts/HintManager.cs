@@ -32,35 +32,40 @@ public class HintManager : MonoBehaviour
 
     public string GetString ()
     {
+        if (NowHintNumber != HintsText.Count)
+            NowHintNumber++;
         return HintsText[NowHintNumber];
-        if(NowHintNumber != HintsText.Count)
-        NowHintNumber++;
+     
     }
     public string GetObjectation()
     {
         if (NumberOfObjec == 0)
         {
-            return GoalSurface;
             NumberOfObjec = 1;
             gm.SearchingSurface = true;
+            return GoalSurface;
+      
         }
         else if (NumberOfObjec == 1)
         {
-            return GoalEye;
             NumberOfObjec = 2;
             gm.SearchingEyes = true;
+            return GoalEye;
+         
         }
-        else if (NumberOfObjec == 3)
+        else if (NumberOfObjec == 2)
         {
-            return GoalMonth;
             NumberOfObjec = 4;
             gm.SearchingMouth = true;
+            return GoalMonth;
+  
         }
         else
         {
-            return GoalEar;
             NumberOfObjec = 5;
             gm.SearchingEars = true;
+            return GoalEar;
+          
         }
     }
 
