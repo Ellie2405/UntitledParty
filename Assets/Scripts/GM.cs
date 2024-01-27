@@ -9,7 +9,7 @@ public class GM : MonoBehaviour
 
     [Header("NPC")]
     [SerializeField] Player PlayerObj;
-    [SerializeField] public GameObject TargetNPC;
+    [SerializeField] public GameObject targetNPC;
     public GameObject NowNPC;
 
     [Header("UI")]
@@ -41,14 +41,14 @@ public class GM : MonoBehaviour
     }
     void SetRandomTarget ()
     {
-        GameObject[] AllNPC = GameObject.FindGameObjectsWithTag("NPC");
-        int i = Random.Range(0, AllNPC.Length - 1);
-        Debug.Log("Name: " +  AllNPC[i].name);
-        TargetNPC = AllNPC[i];
-        HintGM.GetGoal(AllNPC[i].GetComponent<NPC>().MaskGenerec.SurfaceName,
-            AllNPC[i].GetComponent<NPC>().MaskGenerec.EarsName,
-            AllNPC[i].GetComponent<NPC>().MaskGenerec.MouthName,
-            AllNPC[i].GetComponent<NPC>().MaskGenerec.EyesName);
+        GameObject[] allNPCs = GameObject.FindGameObjectsWithTag("NPC");
+        int i = Random.Range(0, allNPCs.Length - 1);
+        Debug.Log("Name: " +  allNPCs[i].name);
+
+        targetNPC = allNPCs[i];
+        GenericMask mask = allNPCs[i].GetComponent<NPC>().MaskGenerec;
+        HintGM.SetGoal(mask);
+        
     }
 
     // Update is called once per frame
