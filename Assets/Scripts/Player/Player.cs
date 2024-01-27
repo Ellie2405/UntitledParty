@@ -151,15 +151,6 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(MaskSwichingBool());
         GameObject PlayerMask = Mask;
-        GameObject NPCMask = NearNPC.GetComponent<NPC>().Mask;
-        Mask = NPCMask;
-        Mask.transform.SetParent(transform);
-        NearNPC.GetComponent<NPC>().Mask = PlayerMask;
-        NearNPC.GetComponent<Wobble>().ResumeMove() ;
-        NearNPC.GetComponent<NPC>().Mask.transform.SetParent(NearNPC.transform);
-
-        Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
-        NearNPC.GetComponent<NPC>().Mask.transform.DOLocalMove(Vector2.zero, 0.4f);
 
             GameObject NPCMask = NearNPC.GetComponent<NPC>().Mask;
             Mask = NPCMask;
