@@ -5,4 +5,5 @@ public class SkinData : ScriptableObject
 {
     public string name;
     public Sprite[] Sprites;
+    public Sprite[] DanceSprites;
 }
