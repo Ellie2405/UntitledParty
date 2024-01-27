@@ -14,6 +14,8 @@ public class ThreatManager : MonoBehaviour
 
     public float UpdateThreatInterval = 10f;
 
+    [SerializeField] CameraShakeManager cameraShakeManager;
+
     void Start()
     {
         InvokeRepeating("UpdateThreat", 0f, UpdateThreatInterval);
@@ -33,6 +35,7 @@ public class ThreatManager : MonoBehaviour
     public void IncreaseThreat(float amount)
     {
         _threatLevel = Mathf.Min(MaxThreatLevel, _threatLevel + amount * IncreaseRate);
+        cameraShakeManager.UpdateStressLevel((int)(_threatLevel / 10));
         Debug.Log($"Threat level increased to {_threatLevel}");
 
         if (_threatLevel >= MaxThreatLevel)
@@ -44,6 +47,7 @@ public class ThreatManager : MonoBehaviour
     public void DecreaseThreat(float amount)
     {
         _threatLevel = Mathf.Max(0f, _threatLevel - amount / DecreaseRate);
+        cameraShakeManager.UpdateStressLevel((int)(_threatLevel/ 10));
         Debug.Log($"Threat level decreased to {_threatLevel}");
     }
 
