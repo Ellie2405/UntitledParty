@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 05a94928f3d113943b54192c7072f33e
+guid: 7783a9045edcf4e4e999b2533c1e2fb4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_1241_0
+      name: IMG_1238_0
       rect:
         serializedVersion: 2
-        x: 10
+        x: 3
         y: 38
-        width: 20
+        width: 22
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c5a49631c05e9b4fb660e14cf6d712b
-      internalID: -1759841995
+      spriteID: 7a27d2fa6ac224549b0d6150977e0b45
+      internalID: -2111602183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_1241_1
+      name: IMG_1238_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 27
         y: 38
-        width: 20
+        width: 22
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,17 +145,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 058d79bbaf174ad46a0643f1b357ffaf
-      internalID: 1640811855
+      spriteID: af363c49afc920e43a7e982c061801d9
+      internalID: 1750757999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_1241_2
+      name: IMG_1238_2
       rect:
         serializedVersion: 2
-        x: 57
+        x: 51
         y: 38
         width: 17
         height: 31
@@ -166,17 +166,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8697ffbae0768a34394dc37dfc5bc6f9
-      internalID: 636297270
+      spriteID: 3f0d0fb45a38612488a0323b1dc43a14
+      internalID: -2035491957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_1241_3
+      name: IMG_1238_3
       rect:
         serializedVersion: 2
-        x: 77
+        x: 70
         y: 38
         width: 17
         height: 31
@@ -187,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c182e064785cad049948b8c8def37f7d
-      internalID: 755510419
+      spriteID: 6198848194ac1e94fa19812c0133b0ce
+      internalID: -1917875100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_1241_4
+      name: IMG_1238_4
       rect:
         serializedVersion: 2
-        x: 9
+        x: 3
         y: 5
-        width: 22
+        width: 23
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,19 +208,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 089fc138c058d5349aab0197708a077a
-      internalID: -1274691146
+      spriteID: 7795506a0838c9741b2d2a9ed7ac7e3c
+      internalID: -1461809701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_1241_5
+      name: IMG_1238_5
       rect:
         serializedVersion: 2
-        x: 33
+        x: 28
         y: 5
-        width: 22
+        width: 23
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adce871f31052d543a62054163d219b1
-      internalID: 1674434912
+      spriteID: 146e4bde496029c48b60417cbe2efb68
+      internalID: 1510600690
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IMG_1241_0: -1759841995
-      IMG_1241_1: 1640811855
-      IMG_1241_2: 636297270
-      IMG_1241_3: 755510419
-      IMG_1241_4: -1274691146
-      IMG_1241_5: 1674434912
+      IMG_1238_0: -2111602183
+      IMG_1238_1: 1750757999
+      IMG_1238_2: -2035491957
+      IMG_1238_3: -1917875100
+      IMG_1238_4: -1461809701
+      IMG_1238_5: 1510600690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
