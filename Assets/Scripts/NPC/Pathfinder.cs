@@ -49,6 +49,7 @@ public class Pathfinder : MonoBehaviour
         {
             int direction = CheckDirection();
             dynamicSkin.UpdateSkin(direction);
+            dynamicSkin.Dance();
             mask.UpdateView(direction);
             wasDirectionChecked = true;
         }

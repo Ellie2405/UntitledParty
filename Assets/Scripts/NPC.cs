@@ -21,6 +21,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
       //  GenText();
         MainCanvas.worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();

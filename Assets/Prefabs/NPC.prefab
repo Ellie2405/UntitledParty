@@ -378,8 +378,12 @@ GameObject:
   - component: {fileID: 8065669603018909721}
   - component: {fileID: 7885959114853230449}
   - component: {fileID: 5995862814295429429}
+<<<<<<< HEAD
   - component: {fileID: 6023286258121148008}
   m_Layer: 0
+=======
+  m_Layer: 8
+>>>>>>> nitzan
   m_Name: NPC
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -527,6 +531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins: {fileID: 0}
+  bpm: 130
+  isDancing: 0
 --- !u!70 &5995862814295429429
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1430,9 +1436,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650467082348562910}
     m_Modifications:
+    - target: {fileID: 655831827859282681, guid: 4c44832fc937dd843bf7b8edf3243053, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3129790014656558438, guid: 4c44832fc937dd843bf7b8edf3243053, type: 3}
       propertyPath: m_Name
       value: GenericMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129790014656558438, guid: 4c44832fc937dd843bf7b8edf3243053, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324366193362993655, guid: 4c44832fc937dd843bf7b8edf3243053, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005932992965584428, guid: 4c44832fc937dd843bf7b8edf3243053, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158604741604339481, guid: 4c44832fc937dd843bf7b8edf3243053, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8760073921321378955, guid: 4c44832fc937dd843bf7b8edf3243053, type: 3}
       propertyPath: m_LocalPosition.x

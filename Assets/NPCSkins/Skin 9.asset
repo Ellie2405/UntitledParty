@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca889265c942cd4438e3dbd890f793a4, type: 3}
+  m_Name: Skin 9
+  m_EditorClassIdentifier: 
+  name: 
+  Sprites:
+  - {fileID: -290293939, guid: 824a9f83c8963cc408573a61a7a5a329, type: 3}
+  - {fileID: -1788774150, guid: 824a9f83c8963cc408573a61a7a5a329, type: 3}
+  - {fileID: 1838491371, guid: 824a9f83c8963cc408573a61a7a5a329, type: 3}
+  - {fileID: 248980514, guid: 824a9f83c8963cc408573a61a7a5a329, type: 3}
+  DanceSprites:
+  - {fileID: -1933363784, guid: 824a9f83c8963cc408573a61a7a5a329, type: 3}
+  - {fileID: -257418846, guid: 824a9f83c8963cc408573a61a7a5a329, type: 3}
