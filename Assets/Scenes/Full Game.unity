@@ -837,6 +837,10 @@ PrefabInstance:
       propertyPath: dSkin
       value: 
       objectReference: {fileID: 1746438891}
+    - target: {fileID: 6083713351772290016, guid: 7cff29e24e372441782cb98fe04d7e6d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1168,19 +1172,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 750527421373329235, guid: c3bd15ffad9654efba8b0acf561ebde8, type: 3}
       propertyPath: hintTextList.Array.data[0]
-      value: 1
+      value: 'I think it with MASK color:'
       objectReference: {fileID: 0}
     - target: {fileID: 750527421373329235, guid: c3bd15ffad9654efba8b0acf561ebde8, type: 3}
       propertyPath: hintTextList.Array.data[1]
-      value: 2
+      value: 'It with EARS of animal:'
       objectReference: {fileID: 0}
     - target: {fileID: 750527421373329235, guid: c3bd15ffad9654efba8b0acf561ebde8, type: 3}
       propertyPath: hintTextList.Array.data[2]
-      value: 3
+      value: 'Try to find EYEs color:'
       objectReference: {fileID: 0}
     - target: {fileID: 750527421373329235, guid: c3bd15ffad9654efba8b0acf561ebde8, type: 3}
       propertyPath: hintTextList.Array.data[3]
-      value: 4
+      value: 'Search MOUTH color:'
       objectReference: {fileID: 0}
     - target: {fileID: 750527421373329235, guid: c3bd15ffad9654efba8b0acf561ebde8, type: 3}
       propertyPath: hintTextList.Array.data[4]
